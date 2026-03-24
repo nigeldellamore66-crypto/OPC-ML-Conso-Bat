@@ -1,0 +1,18 @@
+service: service.py:BuildingEnergyService
+
+labels:
+  project: building-energy
+  owner: nigel
+
+include:
+  - service.py
+
+models:
+  - energy_consumption_model:easgobph5ks2ace5
+
+python:
+  packages:
+    - bentoml
+    - pandas
+    - scikit-learn
+    - pydantic
