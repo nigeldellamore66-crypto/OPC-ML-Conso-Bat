@@ -53,15 +53,23 @@ d'un bâtiment, afin d'anticiper les besoins et d'identifier les bâtiments
 - Endpoint de prédiction : envoyer les caractéristiques d'un bâtiment,
   recevoir la consommation prédite en kBtu
 
-## Lancer l'API
+## Lancer le projet
 
 Prérequis : Python + [Poetry](https://python-poetry.org/docs/#installation) installés
+
+**Étape 1 — Entraîner et exporter le modèle**
+
+Exécuter les notebooks dans l'ordre :
+1. `analyse_features.ipynb` — EDA et feature engineering
+2. `ml_testing.ipynb` — Entraînement et export du modèle dans le store BentoML
+
+> L'export du modèle (dernière cellule de `ml_testing.ipynb`) est obligatoire
+> avant de lancer l'API.
+
+**Étape 2 — Lancer l'API**
 ```bash
-# Installer les dépendances
 cd appli
 poetry install
-
-# Lancer le serveur de prédiction
 poetry run bentoml serve service
 ```
 
